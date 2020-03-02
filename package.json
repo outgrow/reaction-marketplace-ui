@@ -1,6 +1,6 @@
 {
   "name": "reaction-marketplace-ui",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A user interface for @outgrowio/reaction-marketplace",
   "main": "client/index.js",
   "scripts": {
