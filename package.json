@@ -1,0 +1,105 @@
+{
+  "name": "reaction-marketplace-ui",
+  "version": "1.0.0",
+  "description": "A user interface for @outgrowio/reaction-marketplace",
+  "main": "client/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "out:grow",
+  "license": "MIT",
+  "dependencies": {
+    "mdi-material-ui": "^6.11.0"
+  },
+  "babel": {
+    "plugins": [
+      [
+        "@babel/plugin-proposal-class-properties",
+        {
+          "loose": false
+        }
+      ],
+      [
+        "lodash",
+        {
+          "id": [
+            "lodash",
+            "recompose"
+          ]
+        }
+      ],
+      [
+        "module-resolver",
+        {
+          "root": [
+            "./"
+          ],
+          "alias": {
+            "@reactioncommerce/api-utils": "./imports/utils",
+            "@reactioncommerce/reaction-collections": "./imports/plugins/core/collections",
+            "@reactioncommerce/reaction-components": "./imports/plugins/core/components/lib",
+            "@reactioncommerce/reaction-router": "./imports/plugins/core/router/lib",
+            "@reactioncommerce/reaction-ui": "./imports/plugins/core/ui/client/components",
+            "underscore": "lodash"
+          }
+        }
+      ]
+    ],
+    "env": {
+      "test": {
+        "presets": [
+          [
+            "@babel/env",
+            {
+              "targets": {
+                "node": "current"
+              }
+            }
+          ],
+          [
+            "@babel/preset-react"
+          ]
+        ],
+        "plugins": [
+          "rewire-exports",
+          "babel-plugin-inline-import",
+          [
+            "@babel/plugin-proposal-decorators",
+            {
+              "legacy": true
+            }
+          ],
+          "@babel/plugin-proposal-function-sent",
+          "@babel/plugin-proposal-export-namespace-from",
+          "@babel/plugin-proposal-numeric-separator",
+          "@babel/plugin-proposal-throw-expressions",
+          "@babel/plugin-syntax-dynamic-import",
+          "@babel/plugin-syntax-import-meta",
+          [
+            "@babel/plugin-proposal-class-properties",
+            {
+              "loose": false
+            }
+          ],
+          "@babel/plugin-proposal-json-strings",
+          [
+            "module-resolver",
+            {
+              "root": [
+                "./"
+              ],
+              "alias": {
+                "@reactioncommerce/api-utils": "./imports/utils",
+                "@reactioncommerce/reaction-collections": "./imports/plugins/core/collections",
+                "@reactioncommerce/reaction-components": "./imports/plugins/core/components/lib",
+                "@reactioncommerce/reaction-router": "./imports/plugins/core/router/lib",
+                "@reactioncommerce/reaction-ui": "./imports/plugins/core/ui/client/components",
+                "underscore": "lodash"
+              }
+            }
+          ]
+        ]
+      }
+    }
+  }
+}
