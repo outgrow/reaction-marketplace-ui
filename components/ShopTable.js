@@ -36,7 +36,7 @@ function ShopTable() {
       Header: i18next.t("marketplaceSettings.table.headers.owner"),
       accessor: "owner",
       // eslint-disable-next-line react/no-multi-comp,react/display-name,react/prop-types
-      Cell: ({ row }) => <Fragment>{row.values.owner}</Fragment>
+      Cell: ({ row }) => <Fragment>{row.values.owner?.emailRecords[0]?.address}</Fragment>
     },
     {
       Header: i18next.t("marketplaceSettings.table.headers.productCount"),

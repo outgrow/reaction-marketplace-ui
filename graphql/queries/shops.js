@@ -13,7 +13,11 @@ export default gql`
         _id
         createdAt
         name
-        owner
+        owner {
+          emailRecords {
+            address
+          }
+        }
         productCount
       }
     }
