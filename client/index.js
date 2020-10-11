@@ -13,5 +13,6 @@ registerOperatorRoute({
   path: "/marketplace",
   // eslint-disable-next-line react/display-name
   SidebarIconComponent: (props) => <Shopping {...props} />,
-  sidebarI18nLabel: "marketplaceSettings.sidebarLabel"
+  sidebarI18nLabel: "marketplaceSettings.sidebarLabel",
+  shouldShowSidebarLink: (currentShop) => currentShop.shopType === "primary"
 });

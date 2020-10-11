@@ -1,14 +1,24 @@
 import React, { Fragment, useCallback, useMemo, useState } from "react";
 import i18next from "i18next";
 import { useSnackbar } from "notistack";
+import {Card, CardContent, CardHeader, Grid, makeStyles} from "@material-ui/core";
 import DataTable, { useDataTable } from "@reactioncommerce/catalyst/DataTable";
 import { useApolloClient } from "@apollo/react-hooks";
 import OrderDateCell from "/imports/plugins/core/orders/client/components/DataTable/OrderDateCell";
 import shopsQuery from "../graphql/queries/shops.js";
 
+const useStyles = makeStyles(() => ({
+  marginTop: {
+    marginTop: "1rem"
+  }
+}));
+
 function ShopTable() {
+  const classes = useStyles();
+
   const apolloClient = useApolloClient();
   const { enqueueSnackbar } = useSnackbar();
+
   const [isLoading, setIsLoading] = useState(false);
   const [pageCount, setPageCount] = useState(1);
   const [tableData, setTableData] = useState([]);
@@ -80,7 +90,16 @@ function ShopTable() {
   });
 
   return (
-    <DataTable {...dataTableProps} isLoading={isLoading} />
+    <Grid container spacing={1} className={classes.marginTop}>
+      <Grid item sm={12}>
+        <Card>
+          <CardHeader title="Marketplace Shops"/>
+          <CardContent>
+            <DataTable {...dataTableProps} isLoading={isLoading} />
+          </CardContent>
+        </Card>
+      </Grid>
+    </Grid>
   );
 }
 
